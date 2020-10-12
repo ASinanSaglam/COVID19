@@ -101,9 +101,9 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
   // dV = dt * virion_uncoat_rate * nV internal right now
   // dV is nV internal at MAX 
   //
-	double dR = dt * ( (pCell->custom_data["rep_max"] / (pCell->custom_data["rep_half"] * pCell->custom_data[nUV])) + 
-                     (pCell->custom_data["uncoated_to_RNA_rate"] * pCell->custom_data[nUV]) ) ; 
-  // QUESTION: Anything to do with this? 
+	double dR = dt * pCell->custom_data["uncoated_to_RNA_rate"] * pCell->custom_data[nUV];
+	dR += dt * pCell->custom_data["rep_max"] * pCell->custom_data[nR] \
+              (pCell->custom_data[nR] + pCell->custom_data["rep_half"]);
 	if( dR > pCell->custom_data[nUV] )
 	{ dR = pCell->custom_data[nUV]; }
 	pCell->custom_data[nUV] -= dR; 

@@ -51,6 +51,10 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
 	static int nR  = pCell->custom_data.find_variable_index( "viral_RNA" ); 
 	static int nP  = pCell->custom_data.find_variable_index( "viral_protein" ); 
 
+  // Faeder lab params
+  static int rep_max = pCell->custom_data.find_variable_index( "rep_max" );
+  static int rep_half = pCell->custom_data.find_variable_index( "rep_half" );
+
 /*	
 	static bool done = false; 
 	extern Cell* pInfected; 
@@ -84,10 +88,22 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
 	if( dV > pCell->custom_data[nV_internal] )
 	{ dV = pCell->custom_data[nV_internal]; } 
 	pCell->custom_data[nV_internal] -= dV; 
-	pCell->custom_data[nUV] += dV; 
+	pCell->custom_data[nUV] += dV;
 
 	// convert uncoated virus to usable mRNA 
-	double dR = dt * pCell->custom_data["uncoated_to_RNA_rate"] * pCell->custom_data[nUV]; 
+  // 
+  // dv/dt = r_rep_max / (R() + r_rep_half)
+  // R is RNA from virus, r_rep_max is max replication rate
+  // which is which is 3/min, r_rep_half is 200 half max for 
+  // RNA replication rate 
+  //
+  // nUV is uncoated virion count 
+  // dV = dt * virion_uncoat_rate * nV internal right now
+  // dV is nV internal at MAX 
+  //
+	double dR = dt * ( (pCell->custom_data["rep_max"] / (pCell->custom_data["rep_half"] * pCell->custom_data[nUV])) + 
+                     (pCell->custom_data["uncoated_to_RNA_rate"] * pCell->custom_data[nUV]) ) ; 
+  // QUESTION: Anything to do with this? 
 	if( dR > pCell->custom_data[nUV] )
 	{ dR = pCell->custom_data[nUV]; }
 	pCell->custom_data[nUV] -= dR; 

@@ -324,10 +324,10 @@
 					description="rate at which viral proteins are assembled into complete virion">0.01</virion_assembly_rate>
 
         <!-- addition from Faeder lab -->
-        <rep_max units="1/min" type="double"
-					description="maximum RNA replication rate">3</rep_max>
-        <rep_half units="virions" type="double"
-					description="virion count at which RNA replication at half max">200</rep_half>
+        <max_RNA_replication_rate units="1/min" type="double"
+					description="maximum RNA replication rate">3</max_RNA_replication_rate>
+        <RNA_replication_half units="virions" type="double"
+					description="virion count at which RNA replication at half max">200</RNA_replication_half>
  
 				<!-- virus adsorption and export -->
 				<virion_export_rate type="double" units="1/min" 

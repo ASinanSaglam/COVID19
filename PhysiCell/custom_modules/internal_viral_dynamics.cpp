@@ -51,10 +51,6 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
 	static int nR  = pCell->custom_data.find_variable_index( "viral_RNA" ); 
 	static int nP  = pCell->custom_data.find_variable_index( "viral_protein" ); 
 
-  // Faeder lab params
-  static int rep_max = pCell->custom_data.find_variable_index( "rep_max" );
-  static int rep_half = pCell->custom_data.find_variable_index( "rep_half" );
-
 /*	
 	static bool done = false; 
 	extern Cell* pInfected; 
@@ -102,10 +98,11 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
   // dV is nV internal at MAX 
   //
 	double dR = dt * pCell->custom_data["uncoated_to_RNA_rate"] * pCell->custom_data[nUV];
-	dR += dt * pCell->custom_data["rep_max"] * pCell->custom_data[nR] \
-              (pCell->custom_data[nR] + pCell->custom_data["rep_half"]);
 	if( dR > pCell->custom_data[nUV] )
 	{ dR = pCell->custom_data[nUV]; }
+  // RNA replication post uncoated to RNA calc
+	dR += dt * pCell->custom_data["max_RNA_replication_rate"] * pCell->custom_data[nR] /
+              (pCell->custom_data[nR] + pCell->custom_data["RNA_replication_half"]);
 	pCell->custom_data[nUV] -= dR; 
 	pCell->custom_data[nR] += dR; 
 	

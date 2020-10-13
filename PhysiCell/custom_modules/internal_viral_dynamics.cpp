@@ -30,6 +30,8 @@ void internal_virus_model_setup( void )
 	internal_viral_dynamics_info.cell_variables.push_back( "protein_synthesis_rate" ); 
 	internal_viral_dynamics_info.cell_variables.push_back( "virion_assembly_rate" ); 
 	internal_viral_dynamics_info.cell_variables.push_back( "virion_export_rate" ); 
+	internal_viral_dynamics_info.cell_variables.push_back( "max_RNA_replication_rate" ); 
+	internal_viral_dynamics_info.cell_variables.push_back( "RNA_replication_half" ); 
 
 	// submodel_registry.register_model( internal_viral_dynamics_info ); 
 	internal_viral_dynamics_info.register_model();

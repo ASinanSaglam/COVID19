@@ -12,7 +12,7 @@ if os.path.exists("virion_arr.pickle"):
         virion_dat = pickle.load(f)
 else:
     virion_dat = []
-    for i in range(0,145):
+    for i in range(0,101):
         mcds = pyMCDS("output{:08d}.xml".format(i), "output/")
         total_volume = 2494
         virion_dens = mcds.data['continuum_variables']['virion']['data'].sum()

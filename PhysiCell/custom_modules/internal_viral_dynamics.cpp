@@ -100,11 +100,11 @@ void internal_virus_model( Cell* pCell, Phenotype& phenotype, double dt )
   // dV is nV internal at MAX 
   //
 	double dR = dt * pCell->custom_data["uncoated_to_RNA_rate"] * pCell->custom_data[nUV];
-	if( dR > pCell->custom_data[nUV] )
-	{ dR = pCell->custom_data[nUV]; }
   // RNA replication post uncoated to RNA calc
 	dR += dt * pCell->custom_data["max_RNA_replication_rate"] * pCell->custom_data[nR] /
               (pCell->custom_data[nR] + pCell->custom_data["RNA_replication_half"]);
+	// if( dR > pCell->custom_data[nUV] )
+	// { dR = pCell->custom_data[nUV]; }
 	pCell->custom_data[nUV] -= dR; 
 	pCell->custom_data[nR] += dR; 
 	

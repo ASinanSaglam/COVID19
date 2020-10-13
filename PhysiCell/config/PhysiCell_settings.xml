@@ -326,6 +326,8 @@
         <!-- addition from Faeder lab -->
         <max_RNA_replication_rate units="1/min" type="double"
 					description="maximum RNA replication rate">3</max_RNA_replication_rate>
+        <basal_RNA_degradation_rate units="1/min" type="double"
+					description="degradation of RNA">0.01</basal_RNA_degradation_rate>
         <RNA_replication_half units="virions" type="double"
 					description="virion count at which RNA replication at half max">200</RNA_replication_half>
  

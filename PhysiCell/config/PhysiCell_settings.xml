@@ -286,16 +286,16 @@
 
 				<secretion>
 					<substrate name="interferon 1">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 					<substrate name="chemokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 					<substrate name="debris">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 				</secretion>
 
@@ -364,9 +364,9 @@
 				<virus_fraction_released_at_death type="double" units="none" 
 					description="fraction of internal virus released at cell death">0</virus_fraction_released_at_death>
 				<infected_cell_chemokine_secretion_rate units="1/min" type="double"
-					description="max rate that infected cells secrete chemokine">1</infected_cell_chemokine_secretion_rate>
+					description="max rate that infected cells secrete chemokine">0</infected_cell_chemokine_secretion_rate>
 				<debris_secretion_rate units="1/min" type="double"
-					description="rate that dead cells release debris">1</debris_secretion_rate>
+					description="rate that dead cells release debris">0</debris_secretion_rate>
 				
 				<infected_cell_chemokine_secretion_activated units="none" type="double"
 					description="used internally to track activation of chemokine secretion">0</infected_cell_chemokine_secretion_activated>
@@ -408,7 +408,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">0</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -428,7 +428,7 @@
 				</death>
 				<motility>  
 					<options>
-						<enabled>false</enabled>
+						<enabled>true</enabled>
 					</options>
 				</motility>
 				<secretion>
@@ -455,7 +455,7 @@
 					<persistence_time units="min">5</persistence_time>
 					<migration_bias units="dimensionless">0.70</migration_bias>
 					<options>
-						<enabled>true</enabled>
+						<enabled>false</enabled>
 						<use_2D>true</use_2D>
 						<chemotaxis>
 							<enabled>true</enabled>
@@ -467,13 +467,13 @@
 
 				<secretion>
 					<substrate name="pro-inflammatory cytokine">
-						<uptake_rate units="1/min">0.01</uptake_rate>
+						<uptake_rate units="1/min">0.00</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
-						<uptake_rate units="1/min">0.01</uptake_rate>
+						<uptake_rate units="1/min">0.00</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
-						<uptake_rate units="1/min">0.1</uptake_rate>
+						<uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 				</secretion>
 
@@ -493,7 +493,7 @@
 				<motility>
 					<migration_bias units="dimensionless">0.70</migration_bias>
 					<options>
-						<enabled>true</enabled>
+						<enabled>false</enabled>
 						<use_2D>true</use_2D>
 						<chemotaxis>
 							<enabled>true</enabled>
@@ -532,7 +532,7 @@
 					<migration_bias>0.7</migration_bias> 
 					<persistence_time>5</persistence_time>
 					<options>
-						<enabled>true</enabled>
+						<enabled>false</enabled>
 						<use_2D>true</use_2D>					
 						<chemotaxis>
 							<enabled>true</enabled>
@@ -563,7 +563,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed> <!-- 0.4 --> 
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">0</activated_cytokine_secretion_rate>
 
 			</custom_data>
 		</cell_definition>		
@@ -581,7 +581,7 @@
 					<migration_bias>0.91</migration_bias>  
 					<persistence_time>5</persistence_time>
 					<options>
-						<enabled>true</enabled>
+						<enabled>false</enabled>
 						<use_2D>true</use_2D>					
 						<chemotaxis>
 							<enabled>true</enabled>
@@ -630,27 +630,27 @@
 		<!-- example parameters from the template --> 
 		
 		<div_immune type="divider" description="--Immune activation parameters--"/>
-			<immune_dt type="double" units="min" description="how often we check to introduce immune cells">10</immune_dt> 
+			<immune_dt type="double" units="min" description="how often we check to introduce immune cells">0</immune_dt> 
 			
 			<immune_z_offset type="double" units="micron" 
 				description="immune cell position over the epithelium">0</immune_z_offset>
 
 			<macrophage_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max macrophage recruitment rate (for saturated signal)">4e-9</macrophage_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max macrophage recruitment rate (for saturated signal)">0</macrophage_max_recruitment_rate> <!-- 4e-9 debug -->
 			<macrophage_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract macrophages">0.1</macrophage_recruitment_min_signal> <!--0.1 debug -->
 			<macrophage_recruitment_saturation_signal type="double" units="substrate/micron^3"
-				description="saturating concentration to attract macrophages">0.3</macrophage_recruitment_saturation_signal> <!-- 0.3 debug -->
+				description="saturating concentration to attract macrophages">0.0</macrophage_recruitment_saturation_signal> <!-- 0.3 debug -->
 
 			<neutrophil_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max neutrophil recruitment rate (for saturated signal)">4e-9</neutrophil_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max neutrophil recruitment rate (for saturated signal)">0</neutrophil_max_recruitment_rate> <!-- 4e-9 debug -->
 			<neutrophil_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract neutrophils">0.1</neutrophil_recruitment_min_signal> <!--0.1 debug -->
 			<neutrophil_recruitment_saturation_signal type="double" units="substrate/micron^3"
 				description="saturating concentration to attract neutrophils">0.3</neutrophil_recruitment_saturation_signal> <!-- 0.3 debug -->
 
 			<CD8_Tcell_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max CD8 T cell recruitment rate (for saturated signal)">4e-9</CD8_Tcell_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max CD8 T cell recruitment rate (for saturated signal)">0</CD8_Tcell_max_recruitment_rate> <!-- 4e-9 debug -->
 			<CD8_Tcell_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract CD8 T cells">0.4</CD8_Tcell_recruitment_min_signal> <!-- 0.3 debug -->
 			<CD8_Tcell_recruitment_saturation_signal type="double" units="substrate/micron^3"
@@ -665,7 +665,7 @@
 			<number_of_CD8_Tcells type="int" units="none" 
 				description="initial number of CD8 T cells">0</number_of_CD8_Tcells>
 			<number_of_macrophages type="int" units="none" 
-				description="initial number of macrophages">50</number_of_macrophages>
+				description="initial number of macrophages">0</number_of_macrophages>
 			<number_of_neutrophils type="int" units="none" 
 				description="initial number of neutrophils">0</number_of_neutrophils>
 			

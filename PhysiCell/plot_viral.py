@@ -20,7 +20,7 @@ else:
     cont_immune = []
     frac_inf = []
     assembled_vir = []
-    for i in range(0,101):
+    for i in range(0,20):
         mcds = pyMCDS("output{:08d}.xml".format(i), "output/")
         total_volume = 8000 
         virion_dens = mcds.data['continuum_variables']['virion']['data']
@@ -72,6 +72,7 @@ plt.plot(cell_dat, label="live cells")
 # plt.plot(cont_immune, label="continuum immune resp")
 plt.legend(frameon=False)
 plt.gca().set(yscale="log")
+plt.ylim((1e-2,1e8))
 plt.xlabel("time (hours)")
 plt.ylabel("count (or total virion density * total volume)")
 plt.savefig("custom_viral_inf.png")

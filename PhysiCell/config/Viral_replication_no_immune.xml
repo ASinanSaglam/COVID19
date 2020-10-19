@@ -286,16 +286,16 @@
 
 				<secretion>
 					<substrate name="interferon 1">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 					<substrate name="pro-inflammatory cytokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 					<substrate name="chemokine">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 					<substrate name="debris">
-						<secretion_target units="dimensionless substrate concentration">1</secretion_target>
+						<secretion_target units="dimensionless substrate concentration">0</secretion_target>
 					</substrate> 	
 				</secretion>
 
@@ -311,7 +311,7 @@
 					description="total (functional) viral RNA copies">0</viral_RNA>
 				<viral_protein units="protein" type="double"
 					description="total assembled sets of viral protein">0</viral_protein>
-				<assembled_virion uints="virions" type="double"
+				<assembled_virion units="virions" type="double"
 					description="total assembled virions">0</assembled_virion>
 				
 				<virion_uncoating_rate type="double" units="1/min" 
@@ -322,6 +322,14 @@
 					description="rate at mRNA creates complete set of proteins">0.01</protein_synthesis_rate>
 				<virion_assembly_rate type="double" units="1/min" 
 					description="rate at which viral proteins are assembled into complete virion">0.01</virion_assembly_rate>
+
+        <!-- addition from Faeder lab -->
+        <max_RNA_replication_rate units="1/min" type="double"
+					description="maximum RNA replication rate">3</max_RNA_replication_rate>
+        <basal_RNA_degradation_rate units="1/min" type="double"
+					description="degradation of RNA">0.01</basal_RNA_degradation_rate>
+        <RNA_replication_half units="virions" type="double"
+					description="virion count at which RNA replication at half max">200</RNA_replication_half>
  
 				<!-- virus adsorption and export -->
 				<virion_export_rate type="double" units="1/min" 
@@ -338,17 +346,17 @@
 					description="initial number of internalized bound ACE2 receptors">0</bound_internal_ACE2>
 	
 				<ACE2_binding_rate type="double" units="1/min" 
-					description="ACE2 receptor-virus binding rate">0.001</ACE2_binding_rate> 
+					description="ACE2 receptor-virus binding rate">0.01</ACE2_binding_rate> 
 				<ACE2_endocytosis_rate type="double" units="1/min" 
 					description="ACE2 receptor-virus endocytosis rate">0.01</ACE2_endocytosis_rate> 
 				<ACE2_cargo_release_rate type="double" units="1/min" 
-					description="ACE2 receptor-virus cargo release rate">0.001</ACE2_cargo_release_rate> 
+					description="ACE2 receptor-virus cargo release rate">0.01</ACE2_cargo_release_rate> 
 				<ACE2_recycling_rate type="double" units="1/min" 
 					description="ACE2 receptor recycling rate">0.01</ACE2_recycling_rate> 
 				
 				<!-- cell virus response --> 
 				<max_infected_apoptosis_rate type="double" units="1/min" 
-					description="maximum rate of cell apoptosis due to viral infection">0.001</max_infected_apoptosis_rate>
+					description="maximum rate of cell apoptosis due to viral infection">0.002</max_infected_apoptosis_rate>
 				<max_apoptosis_half_max type="double" units="virion" 
 					description="viral load at which cells reach half max apoptosis rate">250</max_apoptosis_half_max> <!-- 500 -->
 				<apoptosis_hill_power type="double" units="none" 
@@ -356,9 +364,9 @@
 				<virus_fraction_released_at_death type="double" units="none" 
 					description="fraction of internal virus released at cell death">0</virus_fraction_released_at_death>
 				<infected_cell_chemokine_secretion_rate units="1/min" type="double"
-					description="max rate that infected cells secrete chemokine">1</infected_cell_chemokine_secretion_rate>
+					description="max rate that infected cells secrete chemokine">0</infected_cell_chemokine_secretion_rate>
 				<debris_secretion_rate units="1/min" type="double"
-					description="rate that dead cells release debris">1</debris_secretion_rate>
+					description="rate that dead cells release debris">0</debris_secretion_rate>
 				
 				<infected_cell_chemokine_secretion_activated units="none" type="double"
 					description="used internally to track activation of chemokine secretion">0</infected_cell_chemokine_secretion_activated>
@@ -400,7 +408,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed>
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">0</activated_cytokine_secretion_rate>
 
 				<activated_immune_cell units="dimensionless" type="double" 
 					description="used internally to track activation state">0.0</activated_immune_cell>
@@ -459,13 +467,13 @@
 
 				<secretion>
 					<substrate name="pro-inflammatory cytokine">
-						<uptake_rate units="1/min">0.01</uptake_rate>
+						<uptake_rate units="1/min">0.00</uptake_rate>
 					</substrate> 	
 					<substrate name="chemokine">
-						<uptake_rate units="1/min">0.01</uptake_rate>
+						<uptake_rate units="1/min">0.00</uptake_rate>
 					</substrate> 	
 					<substrate name="debris">
-						<uptake_rate units="1/min">0.1</uptake_rate>
+						<uptake_rate units="1/min">0.0</uptake_rate>
 					</substrate> 	
 				</secretion>
 
@@ -555,7 +563,7 @@
 				<activated_speed units="micron/min" type="double" 
 					description="speed after activation">0.4</activated_speed> <!-- 0.4 --> 
 				<activated_cytokine_secretion_rate units="1/min" type="double" 
-					description="rate of secreting pro-inflamatory cytokine after activation">1</activated_cytokine_secretion_rate>
+					description="rate of secreting pro-inflamatory cytokine after activation">0</activated_cytokine_secretion_rate>
 
 			</custom_data>
 		</cell_definition>		
@@ -622,27 +630,27 @@
 		<!-- example parameters from the template --> 
 		
 		<div_immune type="divider" description="--Immune activation parameters--"/>
-			<immune_dt type="double" units="min" description="how often we check to introduce immune cells">10</immune_dt> 
+			<immune_dt type="double" units="min" description="how often we check to introduce immune cells">0</immune_dt> 
 			
 			<immune_z_offset type="double" units="micron" 
 				description="immune cell position over the epithelium">0</immune_z_offset>
 
 			<macrophage_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max macrophage recruitment rate (for saturated signal)">4e-9</macrophage_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max macrophage recruitment rate (for saturated signal)">0</macrophage_max_recruitment_rate> <!-- 4e-9 debug -->
 			<macrophage_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract macrophages">0.1</macrophage_recruitment_min_signal> <!--0.1 debug -->
 			<macrophage_recruitment_saturation_signal type="double" units="substrate/micron^3"
-				description="saturating concentration to attract macrophages">0.3</macrophage_recruitment_saturation_signal> <!-- 0.3 debug -->
+				description="saturating concentration to attract macrophages">0.0</macrophage_recruitment_saturation_signal> <!-- 0.3 debug -->
 
 			<neutrophil_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max neutrophil recruitment rate (for saturated signal)">4e-9</neutrophil_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max neutrophil recruitment rate (for saturated signal)">0</neutrophil_max_recruitment_rate> <!-- 4e-9 debug -->
 			<neutrophil_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract neutrophils">0.1</neutrophil_recruitment_min_signal> <!--0.1 debug -->
 			<neutrophil_recruitment_saturation_signal type="double" units="substrate/micron^3"
 				description="saturating concentration to attract neutrophils">0.3</neutrophil_recruitment_saturation_signal> <!-- 0.3 debug -->
 
 			<CD8_Tcell_max_recruitment_rate type="double" units="cells/min/micron^3"
-				description="max CD8 T cell recruitment rate (for saturated signal)">4e-9</CD8_Tcell_max_recruitment_rate> <!-- 4e-9 debug -->
+				description="max CD8 T cell recruitment rate (for saturated signal)">0</CD8_Tcell_max_recruitment_rate> <!-- 4e-9 debug -->
 			<CD8_Tcell_recruitment_min_signal type="double" units="substrate/micron^3"
 				description="min concentration to attract CD8 T cells">0.4</CD8_Tcell_recruitment_min_signal> <!-- 0.3 debug -->
 			<CD8_Tcell_recruitment_saturation_signal type="double" units="substrate/micron^3"
@@ -650,14 +658,14 @@
 		
 		<div_initialization type="divider" description="---Initialization Options--"/>
 			<multiplicity_of_infection type="double" units="none" 
-				description="multiplicity of infection: virions/cells at t=0">0.1</multiplicity_of_infection> <!-- 0.01 debug -->
+				description="multiplicity of infection: virions/cells at t=0">10</multiplicity_of_infection> <!-- 0.01 debug -->
 			<use_single_infected_cell type="bool" units="none" 
 				description="Infect center cell with one virion (overrides MOI)">false</use_single_infected_cell>
 			
 			<number_of_CD8_Tcells type="int" units="none" 
 				description="initial number of CD8 T cells">0</number_of_CD8_Tcells>
 			<number_of_macrophages type="int" units="none" 
-				description="initial number of macrophages">50</number_of_macrophages>
+				description="initial number of macrophages">0</number_of_macrophages>
 			<number_of_neutrophils type="int" units="none" 
 				description="initial number of neutrophils">0</number_of_neutrophils>
 			
